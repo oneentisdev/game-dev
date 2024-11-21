@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snail App</title>
+<style>
+
+  * {
+    box-sizing: border-box;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  }
+  .heading-1{
+    font-size: 40px;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f3eb;
+  }
+
+  .container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .container-2{
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+  .maincontent{
+    display: flex;
+    margin: 0px auto;
+    width: 100vw;
+    max-width: 1280px;
+    flex-direction: column;
+  }
+  .main-content{
+    grid-template-columns: 170px auto 170px;
+    display: grid;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+  .main-content > .right> button,  .left button{
+    background-color: #ff4b4b;
+    color: #fff;
+    display: inline-flex;
+    appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    line-height: 1.2;
+    border-radius: 16px;
+    height: 50px;
+      
+    }
+  .main-content img {
+    width: 200px;
+    height: 150px;
+  }
+  .main-content  > div {
+    width: 100%;
+  }
+  .active-campaign{
+    display: flex;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
+  .campaign{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 16px;
+  }
+  .chakra-image{
+    position: absolute;
+    bottom: -60px;
+    right: -80px;
+    max-width: 100%;
+    height: auto;
+  }
+  .mission-content
+  {
+
+  }
+  .item {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .large {
+    grid-column: span 2;
+    grid-row: span 3;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-inline: 42px;
+    padding-top: 33px;
+    padding-bottom: 33px;
+  }
+  .mini-grid{
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    padding-inline: 42px;
+  }
+  .submit-project{
+    padding-bottom: 5%;
+    align-items: start;
+    padding-inline: 100px;
+  }
+  .mini-grid-2{
+    grid-column: span 1;
+  }
+  .background-color-community{
+    background-color: #000;
+  }
+  .centered {
+    text-align: center;
+  }
+
+  .price {
+    color: #000;
+    padding-inline: 65px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+  .price-content{
+    display: flex;
+    -webkit-box-align: center;
+    gap: 49px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .price-photo{
+    max-width: 100%;
+    height: auto;
+    width: 50px;
+  }
+  .our-community-logo{
+    max-width: 100%;
+    height: auto;
+    width: 25px;
+  }
+  .price-chart{
+    display: inline-flex;
+    appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    line-height: 1.2;
+    border-radius: 16px;
+    border: 2px solid gray;
+    cursor: default;
+    color: gray;
+    height: 50px;
+  }
+  .btn {
+    display: inline-flex;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+
+  .read-more{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    display: inline-grid;
+  }
+
+  .btn a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #ff4b4b;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 14px;
+    height: 50px;
+    align-items: center;
+    display: inline-grid;
+    text-align: center;
+  }
+  .btn-2 a {
+    color: grey;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: transparent;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 14px;
+  }
+
+  .btn a:hover {
+    background-color: #000;
+    transform: scale(1.05);
+  }
+  .icon-css{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+  }
+     /* Basic Reset */
+  .text-align-left{
+    text-align: left;
+  }
+    /* Top Info Bar */
+  .info-bar {
+    width: 100%;
+    background-color: #000;
+    color: white;
+    font-size: 14px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+  }
+
+  .info-bar .info-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .info-bar .info-section span {
+    color: #d2d2d2;
+  }
+
+  .info-bar .price,
+  .info-bar .mcap,
+  .info-bar .contract {
+    color: #ff4b4b;
+  }
+
+  .info-bar .contract {
+    color: #ffc700;
+    cursor: pointer;
+  }
+
+  /* Social Media Text and Icons */
+  .social-media {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+  }
+
+  /* Main Navbar */
+  .navbar {
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f3eb;
+    flex-wrap: wrap;
+    
+  }
+
+  /* Logo Section */
+  .navbar .logo img {
+    width: 50px;
+    height: auto;
+  }
+
+  /* Menu */
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .menu a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 14px;
+  }
+
+  .menu a:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+  }
+
+  /* Special Buy Button */
+  .menu .buy {
+    color: #ff4b4b;
+  }
+
+  /* Highlighted Button */
+  .menu .highlighted {
+    background-color: #000;
+    color: #ff4b4b;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 20px;
+  }
+
+  .menu .highlighted img {
+    width: 20px;
+    height: auto;
+  }
+/* Dropdown Section */
+.dropdown-container {
+      background-color: #000;
+      color: #fff;
+      padding: 90px;
+      border-radius: 100px;
+      margin-top: 20px;
+    }
+    .dropdown-title {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background-color: #333;
+      border-radius: 100px;
+      font-size: 1.1rem;
+    }
+
+    .dropdown-content {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      background-color: #222;
+      border-radius: 8px;
+    }
+
+    .dropdown-content p {
+      color: #fff;
+      margin: 0;
+    }
+    /* Footer Section */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer .left, .footer .right {
+    grid-template-columns: 1fr 250px 1fr;
+    margin-top: 50px;
+    margin-bottom: 33px;
+    background: var(--chakra-colors-white);
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 24px 44px;
+    display: none;
+    border-radius: 20px;
+    }
+    
+    
+
+    .footer .left .price-chart {
+      background-color: #f0f0f0;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: not-allowed;
+    }
+
+    .footer-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .footer-icons a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .info-bar {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .info-bar .info-section, .social-media {
+      justify-content: center;
+      margin-bottom: 5px;
+    }
+
+    .navbar {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .menu {
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .menu a {
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+
+    .menu .highlighted {
+      padding: 6px 15px;
+    }
+
+    .navbar .logo img {
+      width: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .info-bar {
+      font-size: 12px;
+      padding: 10px;
+    }
+    .main-content{
+      display: none;
+    }
+    .navbar {
+      padding: 10px;
+    }
+
+    .menu a {
+      font-size: 11px;
+      padding: 5px 8px;
+    }
+
+    .menu .highlighted {
+      font-size: 11px;
+      padding: 5px 12px;
+    }
+
+    .navbar .logo img {
+      width: 35px;
+    }
+    
+  }
+</style>
+</head>
+
+<body>
+<!-- Top Info Bar -->
+<div class="info-bar">
+  <div class="info-section">
+    <div class="price">PRICE: <span> Coming Soon</span></div>
+    <div class="mcap">MCAP: <span>Coming Soon</span></div>
+    <div class="contract">CONTRACT: <span>CkD7j1pdzDPAf8jsV3mG6yS7tTfTQ6MzChBeSyUvpump</span> 🔗</div>
+  </div>
+  <div class="social-media">
+    DON'T MISS OUR SOCIAL MEDIA 
+    <a href="http://t.me/snailcto"><img src="assets/TG-Logo.png" alt="Telegram" width="20"></a>
+    <a href="https://x.com/solana_snail"><img src="assets/Twitter-Logo.png" alt="Close" width="20"></a>
+  </div>
+</div>
+<div class="padding"></div>
+<!-- Main Navbar -->
+<div class="navbar">
+  <!-- Left Logo -->
+  <div class="logo">
+    <img src="assets/snail-logo.png" alt="Logo"> <!-- Replace with actual logo path -->
+  </div>
+
+  <!-- Center Menu -->
+  <div class="menu">
+    <a href="files/boo-litepaper-version-1-0-november-2024-1 .pdf" download="">Litepaper</a>
+    <a href="#contact">Contact</a>
+    <a href="https://pump.fun/FYFdPGyUbDiozGZnXhksvJ3xjtz9GUjLjxBoGG5gpump" class="buy">Buy $SNAIL</a>
+    <a href="#ranking">🏆 Ranking (Soon)</a>
+    <a href="https://solscan.io/token/FYFdPGyUbDiozGZnXhksvJ3xjtz9GUjLjxBoGG5gpump">Token</a>
+    <a href="#trade" class="highlighted"><img src="assets/circle logo.png" alt="Ghost"> Boo Dex - Trade and Earn</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="item large centered text-align-left">
+    <p>Clicker - Earn free tokens</p>
+    <span class="heading-1">Collect coins</span>
+    <div class="active-campaign">
+      <div class="campaign">
+        <div style="font-size: 55px;">
+          0
+        </div>
+        <div style="font-size: 20px;">
+          <div style="gap: 8px;">
+            Active
+          </div>
+          Campaign
+        </div>
+      </div>
+      <div class="btn">
+        <a href="#">BOO Feeder</a>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="item mini-grid background-color-community centered text-align-left">
+    <div class="join-community">
+      <h4 style="color: #ff4b4b;">Come to become part of us <br/>
+        <span style="color: #fff;">Join Our Community</span>
+      </h4>
+      
+    </div>
+    <!-- Add icons or links for social media here -->
+     <div>
+      <a href="http://t.me/snailcto"><img src="assets/TG-Logo.png" class="our-community-logo"></a>
+      <a href="https://x.com/solana_snail"><img src="assets/Twitter-Logo.png" class="our-community-logo"></a>
+     </div>
+    
+  </div>
+
+  <div class="item large centered text-align-left">
+    <div class="mission-content">
+      
+      <h3>Mission</h3>
+      <p>A simple game where you collect coins to earn rewards!</p>
+    </div>
+    <div class="btn">
+      <a href="" class="read-more">Read More</a>
+    </div>
+  </div>
+
+  <div class="item mini-grid centered text-align-left">
+    <div>
+      <h4 style="color: #ff4b4b;">Total Supply</h4>
+      <p>9866150656 Booooo</p>
+    </div>
+    
+  </div>
+
+  <div class="item mini-grid price-content centered text-align-left" style="background-color: #ff4b4b;">
+    <div class="price">
+      <img src="assets/circle logo.png" class="price-photo">
+      <div>
+        <h4>Price</h4>
+        <p>Coming Soon</p>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="item mini-grid submit-project centered text-align-left">
+    <h3>Submit your project, ideas, feedback here</h3>
+    <div class="btn-2">
+      <a href="#">Soon</a>
+    </div>
+  </div>
+
+  <div class="item ">
+    <div class="centered">
+      <h3>990611</h3>
+      <p>Feeds</p>
+    </div>
+  </div>
+
+  <div class="item" style="grid-column: span 2;">
+    <div class="centered">
+      <h3>5759</h3>
+      <p>Users</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="centered">
+      <h3>167045</h3>
+      <p>Network Fees</p>
+    </div>
+  </div>
+</div>
+<div class="container-2" style="padding-top: 10%;">
+  <!-- Dropdown Section -->
+  <div class="dropdown-container">
+    <h2 style="font-size: 50px;">Frequently <br/> Asked Questions</h2>
+    <div class="dropdown-title" onclick="faq1()">
+      <span>- How to buy $SNAIL</span>
+      <span>+</span>
+    </div>
+    <div class="dropdown-content" id="dropdownContent">
+      <p>Boo will be listed on Pumpfun and other Friendly Market. You will be able to buy Boo with Solana.</p>
+    </div>
+    <hr style="background-color: #000;">
+    <div class="dropdown-title" onclick="faq2()">
+      <span>- Why should I want to buy $SNAIL tokens</span>
+      <span>+</span>
+    </div>
+    <div class="dropdown-content" id="dropdownContent2">
+      <p>Having $SNAIL has many benefits. Through the buyback&burn system, Boo clicker dapp, marketing campaigns - our goal is to reduce the number of tokens in circulation and reward the community for their support</p>
+    </div>
+  </div>
+
+   <!-- Main Content (Ghost Image) -->
+    <div class="maincontent" style="padding-top: 5%;">
+      <div class="main-content" style="padding-top: 1%;">
+          <div class="btn">
+            <a href="https://pump.fun/FYFdPGyUbDiozGZnXhksvJ3xjtz9GUjLjxBoGG5gpump">Price Chart</a>
+          </div>    
+          <div class="icon-css">  
+              <img src="assets/boocoinweb.png" alt="Ghost Image"/>
+          </div>
+          <div class="btn">
+            <a href="files/boo-litepaper-version-1-0-november-2024-1 .pdf" download>Litepaper</a>
+          </div>
+      </div>
+    </div>
+    
+   
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="powered">
+      <p>Copyright © 2024 Fatso. All Rights Reserved.</p>
+    </div>
+    <!-- Social Media Links -->
+      <div>
+          <a href="https://x.com/solana_snail" aria-label="Twitter">X (Twitter)</a>
+          <a href="http://t.me/snailcto" aria-label="Telegram">Telegram</a>
+      </div>
+    <div class="right">
+      <p>Powered by Casper</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<script>
+  function faq1() {
+    const content = document.getElementById("dropdownContent");
+    const display = content.style.display;
+    content.style.display = display === "none" || display === "" ? "block" : "none";
+  }
+  function faq2() {
+    const content = document.getElementById("dropdownContent2");
+    const display = content.style.display;
+    content.style.display = display === "none" || display === "" ? "block" : "none";
+  }
+</script>
+</body>
+</html>
